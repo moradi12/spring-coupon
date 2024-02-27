@@ -9,18 +9,18 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Entity
+@Table(name = "companies")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "companies")
-
 public class Companies {
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id ;
+    @Id
+    private Integer id;
 
     @Column(nullable = false)
     private String name;
 
+    private String password;
 }

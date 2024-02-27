@@ -1,4 +1,10 @@
 package Repository;
 
-public interface CustomerRepository {
+import beans.Customer;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CustomerRepository extends JpaRepository<Integer, Customer> {
+
+
+
 }
