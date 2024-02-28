@@ -10,8 +10,7 @@ public interface CompaniesRepository extends JpaRepository<Integer, Companies> {
 
     Boolean IsCompanyExists(String email , String password);
 
-
-    List<Companies> findByName(String name);
+//    List<Companies> findByName(String name);
 
 
 
