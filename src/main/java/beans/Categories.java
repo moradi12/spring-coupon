@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 @Builder
 @Table(name = "category")
-public class Category {
+public class Categories {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

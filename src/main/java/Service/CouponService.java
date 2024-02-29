@@ -19,15 +19,17 @@ public class CouponService {
     }
 
     public List<Coupon> getAllCoupons() {
-        return couponRepository.findAll();
+        // Get all coupons from the repository
+        List<Coupon> allCoupons = couponRepository.findAll();
+
+        // Remove expired coupons from the list
+        allCoupons.removeIf(Coupon::isExpired);
+
+        return allCoupons;
     }
 
     public Coupon getCouponById(Integer couponId) throws CouponNotFoundException {
-        Coupon coupon = couponRepository.findById(couponId).orElse(null);
-        if (coupon == null) {
-            throw new CouponNotFoundException("Coupon not found");
-        }
-        return coupon;
+        return couponRepository.findById(couponId)
+                .orElseThrow(() -> new CouponNotFoundException("Coupon not found"));
     }
-    }
-
+}

@@ -6,9 +6,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface CouponRepository extends JpaRepository<Coupon, Integer> {
-    List<Coupon> findByNameOrID(String name, int id);
 
+    List<Coupon> findByCompanyId(Integer companyId);
 
-    public List<Coupon> PriceLowerThan(Double maxPrice);
+    List<Coupon> findByNameOrId(String name, int id);
+
+    List<Coupon> findByPriceLessThan(Double maxPrice);
 
 }

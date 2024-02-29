@@ -39,9 +39,10 @@ public class Coupon {
     @Column(name = "description", nullable = false)
     private String description;
 
-
+    @Column(nullable = false)
     private LocalDate startDate;
 
+    @Column(nullable = false)
     private LocalDate endDate;
 
     @NotNull
@@ -54,5 +55,9 @@ public class Coupon {
 
     private String image;
 
+
+    public boolean isExpired() {
+        return endDate != null && endDate.isBefore(LocalDate.now());
+    }
 
 }

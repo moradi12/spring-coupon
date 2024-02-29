@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-@Order(1)
 public class InitCreateCoupon implements CommandLineRunner {
 
     @Autowired

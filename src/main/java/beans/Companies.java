@@ -7,6 +7,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 @Entity
 @Table(name = "companies")
@@ -27,4 +30,7 @@ public class Companies {
 
     @Column(nullable = false, length = 20, name = "password")
     private String password;
+
+
+    private List<Coupon> coupon = new ArrayList<>();
 }
