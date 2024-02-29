@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -20,15 +22,23 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false, name = "first_name")
+    @NotNull
+    @Size(min = 1, max = 20)
+    @Column(nullable = false, length = 20, name = "first_name")
     private String firstName;
 
-    @Column(nullable = false, name = "last_name")
+    @NotNull
+    @Size(min = 1, max = 20)
+    @Column(nullable = false, length = 20, name = "last_name")
     private String lastName;
 
-    @Column(nullable = false, name = "email")
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(nullable = false, length = 50, name = "email")
     private String email;
 
-    @Column
+    @NotNull
+    @Size(min = 6, max = 20)
+    @Column(nullable = false, length = 20, name = "password")
     private String password;
 }

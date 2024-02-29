@@ -22,5 +22,9 @@ public class Companies {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false, length = 20, name = "email")
+    private String email;
+
+    @Column(nullable = false, length = 20, name = "password")
     private String password;
 }

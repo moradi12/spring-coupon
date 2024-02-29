@@ -8,12 +8,13 @@ import java.util.List;
 
 public interface CompaniesRepository extends JpaRepository<Integer, Companies> {
 
-    Boolean IsCompanyExists(String email , String password);
+    Boolean IsCompanyExists(String email, String password);
 
-//    List<Companies> findByName(String name);
+    List<Companies> findByName(String name);
 
+    List<Companies> findByNameOrID(String name, int id);
 
-
+    List<Companies> findAllByOrderByWeightDesc();
 
 
 }

@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.stereotype.Component;
+
 
 @Component
 @Entity
@@ -14,16 +16,14 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 @Builder
 @Table(name = "category")
-
 public class Category {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Integer id;
 
-    @Column(nullable = false)
-
+    @Length(max = 10)
+    @Column(nullable = false, length = 20)
     private String name;
-
 
 }

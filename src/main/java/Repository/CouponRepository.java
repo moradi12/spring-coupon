@@ -1,19 +1,14 @@
 package Repository;
 
 import beans.Coupon;
-import beans.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CouponRepository extends JpaRepository<Integer, Coupon> {
+import java.util.List;
+
+public interface CouponRepository extends JpaRepository<Coupon, Integer> {
+    List<Coupon> findByNameOrID(String name, int id);
 
 
-    void addCoupon(Coupon coupon);
-
-    void updateCoupon(Coupon coupon);
-    void deleteCoupon(Coupon coupon);
-
-    
-
-
+    public List<Coupon> PriceLowerThan(Double maxPrice);
 
 }
