@@ -6,15 +6,15 @@ import Repository.CustomerRepository;
 import beans.Coupon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Component
-public class InitCreateCoupon implements CommandLineRunner {
+public class CreateCoupon implements CommandLineRunner {
 
     @Autowired
     CompaniesRepository companiesRepository;
@@ -52,9 +52,13 @@ public class InitCreateCoupon implements CommandLineRunner {
                 .build();
 
 
+        ////SAVE!!!!!////
         coupons.add(coupon1);
         coupons.add(coupon2);
         couponRepository.saveAll(coupons);
+        couponRepository.saveAll(Arrays.asList(coupon1,coupon2));
+
+
     }
 
 
