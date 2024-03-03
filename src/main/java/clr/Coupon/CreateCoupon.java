@@ -1,4 +1,4 @@
-package clr;
+package clr.Coupon;
 
 import Repository.CompaniesRepository;
 import Repository.CouponRepository;

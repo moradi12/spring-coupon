@@ -1,4 +1,4 @@
-package clr;
+package clr.Coupon;
 
 import Exceptions.ErrMsg;
 import Repository.CouponRepository;

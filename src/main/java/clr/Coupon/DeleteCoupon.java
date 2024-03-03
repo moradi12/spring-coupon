@@ -1,4 +1,4 @@
-package clr;
+package clr.Coupon;
 
 import Repository.CouponRepository;
 import beans.Coupon;

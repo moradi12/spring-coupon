@@ -1,17 +1,23 @@
 package Repository;
 
-import beans.Companies;
-import beans.Coupon;
+import beans.Company;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-public interface CompaniesRepository extends JpaRepository<Companies, Integer> {
-    Boolean IsCompanyExists(String email, String password);
+public interface CompaniesRepository extends JpaRepository<Company, Integer> {
+    Boolean existsByEmailAndPassword(String email, String password);
 
-    List<Companies> findByName(String name);
+    List<Company> findAll();
 
-    List<Companies> findByNameOrID(String name, int id);
+    List<Company> findByName(String name);
 
-    List<Companies> findAllByOrderByWeightDesc();
+    List<Company> findByNameID(int id);
+
+    Company save(Company company);
+
+    void deleteById(int companyId);
 }
