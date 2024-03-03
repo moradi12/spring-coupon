@@ -1,8 +1,33 @@
 package Exceptions;
 
+import lombok.Getter;
+
+@Getter
 public enum ErrMsg {
-    ID_NOT_FOUND("id not found.."),
-    ID_ALREADY_EXISTS("Id already exists!");
+
+    /// Coupons
+
+    COUPON_ID_NOT_FOUND("Coupon id not found"),
+    COUPON_ID_ALREADY_EXISTS("Id already exists!"),
+    COUPON_ERROR("Coupon doesn't exist"),
+    COUPON_ERROR_HAS_BEEN_USED("Coupon already Used"),
+    COUPON_NOT_FOUND("Coupon not found"),
+
+    /// Customers
+    CUSTOMER_ALREADY_EXISTS("Customer already exists!"),
+    CUSTOMER_NOT_FOUND("Customer not found"),
+    AUTHENTICATION_FAILED("Authentication failed. Incorrect username or password"),
+    UNAUTHORIZED_ACCESS("Unauthorized access. You do not have permission to perform this action"),
+
+    // Admin
+    ADMIN_NOT_FOUND("Error: Admin not found. Please check the provided details and try again"),
+
+    // Login
+    LOGIN_FAILED("Login failed. Invalid username or password"),
+
+    // DataBase
+    PERMISSION_DENIED("Permission denied. You do not have access"),
+    DATABASE_CONNECTION_ERROR("Error connecting to the database");
 
     private String msg;
 

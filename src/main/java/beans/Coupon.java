@@ -4,12 +4,12 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.engine.internal.Cascade;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -20,7 +20,6 @@ import java.time.LocalDate;
 
 
 public class Coupon {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,9 +54,14 @@ public class Coupon {
 
     private String image;
 
+    @Singular("coupon")
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Coupon> coupon = new ArrayList<>();
+
 
     public boolean isExpired() {
         return endDate != null && endDate.isBefore(LocalDate.now());
     }
+
 
 }

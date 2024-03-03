@@ -1,10 +1,7 @@
 package beans;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -30,7 +27,6 @@ public class Companies {
 
     @Column(nullable = false, length = 20, name = "password")
     private String password;
-
 
     private List<Coupon> coupon = new ArrayList<>();
 }

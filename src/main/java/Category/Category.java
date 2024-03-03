@@ -1,6 +1,6 @@
-package Clients;
+package Category;
 
-public enum ClientTypee {
+public enum Category {
 
     Food,
     Electricity,

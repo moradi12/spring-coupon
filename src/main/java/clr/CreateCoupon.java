@@ -6,6 +6,7 @@ import Repository.CustomerRepository;
 import beans.Coupon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -22,6 +23,8 @@ public class CreateCoupon implements CommandLineRunner {
     CouponRepository couponRepository;
     @Autowired
     CustomerRepository customerRepository;
+    @Autowired
+    ApplicationContext ctx;
 
     @Override
     public void run(String... args) throws Exception {
@@ -31,7 +34,7 @@ public class CreateCoupon implements CommandLineRunner {
                 .companyId(1) // Set company ID
                 .categoryId(1) // Set category ID
                 .title("Coupon Title") // Set title
-                .description("Coupon Description") // Set description
+                .description("Hotel") // Set description
                 .startDate(LocalDate.now()) // Set start date
                 .endDate(LocalDate.now().plusDays(30))
                 .amount(10) // Set amount
@@ -51,15 +54,25 @@ public class CreateCoupon implements CommandLineRunner {
                 .image("coupon_Pc_image.jpg")
                 .build();
 
+        Coupon coupon3 = Coupon.builder()
+                .companyId(3)
+                .categoryId(3)
+                .title("Vacation")
+                .description("Vacation discount")
+                .startDate(LocalDate.now().plusDays(50))
+                .amount(10)
+                .price(33.90)
+                .image("spa.jpg")
+                .build();
+
 
         ////SAVE!!!!!////
         coupons.add(coupon1);
         coupons.add(coupon2);
+        coupons.add(coupon3);
         couponRepository.saveAll(coupons);
-        couponRepository.saveAll(Arrays.asList(coupon1,coupon2));
+        couponRepository.saveAll(Arrays.asList(coupon1, coupon2,coupon3));
 
 
     }
-
-
 }

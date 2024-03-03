@@ -13,4 +13,6 @@ public interface CouponRepository extends JpaRepository<Coupon, Integer> {
 
     List<Coupon> findByPriceLessThan(Double maxPrice);
 
+    List<Coupon> findByNameStartingWith(String name);
+
 }
