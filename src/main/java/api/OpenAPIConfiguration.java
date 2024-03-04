@@ -27,7 +27,9 @@ public class OpenAPIConfiguration {
                 .description("This API exposes endpoints to manage Coupons")
                 .contact(myContact);
 
-        return new OpenAPI().info(info).servers(List.of(server));
+        return new OpenAPI()
+                .info(info).
+                servers(List.of(server));
 
     }
 }

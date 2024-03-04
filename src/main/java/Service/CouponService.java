@@ -46,7 +46,7 @@ public class CouponService {
         couponRepository.save(coupon);
     }
 
-    public void updateCoupon(Coupon updateCoupon) throws CouponNotFoundException {
+    public void updateCoupon(int id, Coupon updateCoupon) throws CouponNotFoundException {
         if (!couponRepository.existsById(updateCoupon.getId())) {
             throw new CouponNotFoundException(ErrMsg.COUPON_ID_NOT_FOUND.getMsg());
         }
