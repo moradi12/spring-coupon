@@ -16,6 +16,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Setter
+@Getter
 @Table(name = "coupons")
 
 
@@ -55,8 +57,14 @@ public class Coupon {
     private String image;
 
     @Singular("coupon")
-    @ManyToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "parentCoupon", cascade = CascadeType.ALL)
     private List<Coupon> coupon = new ArrayList<>();
+
+
+    /// do i need it ?//
+    @ManyToOne
+    @JoinColumn(name = "parent_coupon_id")
+    private Coupon parentCoupon;
 
 
     public boolean isExpired() {
