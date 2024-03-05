@@ -1,26 +1,24 @@
 package Service;
 
-import Exceptions.ErrMsg;
-import Repository.CustomerRepository;
-import org.springframework.stereotype.Service;
+import Exceptions.CustomerException;
+import beans.Customer;
 
-import javax.naming.AuthenticationException;
+import java.util.List;
+import java.util.Optional;
 
-@Service
-public class CustomerService {
+public interface CustomerService {
+    boolean isCustomerExists(String email, String password) throws CustomerException;
 
-    private final CustomerRepository customerRepository;
+    void addCustomer(Customer customer) throws CustomerException;
+    void saveCustomer(Customer customer) throws CustomerException;
 
-    public CustomerService(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
 
-    public boolean checkCustomerExistence(String email, String password) throws AuthenticationException {
-        if (!customerRepository.existsByEmailAndPassword(email, password)) {
-            throw new AuthenticationException(ErrMsg.AUTHENTICATION_FAILED.getMsg());
-        }
-        return true;
-    }
+    void updateCustomer(Customer customer) throws CustomerException;
 
+    void deleteCustomer(int customerID);
+
+    Optional<Customer> getOneCustomer(int customerID) throws CustomerException;
+
+
+    List<Customer> getAllCustomers();
 }
-

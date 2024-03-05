@@ -3,6 +3,7 @@ package beans;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -13,6 +14,7 @@ import java.util.List;
 @Entity
 @Table(name = "customers")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Customer {

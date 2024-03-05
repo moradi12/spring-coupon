@@ -1,6 +1,7 @@
 package clr.Company;
 
 import Repository.CompaniesRepository;
+import Service.CompanyService;
 import beans.Company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -13,6 +14,8 @@ import java.util.Optional;
 @Order(5)
 public class DeleteCompany implements CommandLineRunner {
 
+    @Autowired
+    CompanyService companyService;
     @Autowired
     CompaniesRepository companiesRepository;
     @Override

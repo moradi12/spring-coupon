@@ -5,6 +5,7 @@ import Service.CouponService;
 import beans.Coupon;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class CouponController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void addCoupon(@RequestBody Coupon coupon) throws CouponNotFoundException {
+    public void addCoupon(@Validated @RequestBody Coupon coupon) {
         couponService.addCoupon(coupon);
     }
 
@@ -31,6 +32,7 @@ public class CouponController {
     public void updateCoupon(@PathVariable int id, @RequestBody Coupon coupon) throws CouponNotFoundException {
         couponService.updateCoupon(id, coupon);
     }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void deleteCoupon(@PathVariable int id) throws CouponNotFoundException {
